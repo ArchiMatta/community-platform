@@ -11,7 +11,7 @@ A simple, responsive social media-like app where users can sign up, log in, crea
 | Backend      | Node.js, Express.js              |
 | Database     | MongoDB Atlas (cloud)            |
 | Auth         | JWT (JSON Web Tokens)            |
-| Image Upload | Base64 (stored in MongoDB)       |
+| Image Upload | Cloudinary (External Service)    |
 | API Testing  | Postman                          |
 
 ---
@@ -23,12 +23,14 @@ A simple, responsive social media-like app where users can sign up, log in, crea
 ```bash
 git clone https://github.com/your-username/futurebook.git
 cd futurebook
+```
 
 ### 2. Backend Setup
 
 ```bash
 cd server
 npm install
+```
 
 ### Create a `.env` file
 
@@ -38,11 +40,13 @@ Inside the `server` folder, create a `.env` file with the following content:
 MONGO_URI=your_mongo_atlas_connection_uri
 JWT_SECRET=your_jwt_secret
 PORT=5000
+```
 
 ### Start the Backend Server
 
 ```bash
 npm start
+```
 
 ### 3. Frontend Setup
 
@@ -50,6 +54,7 @@ npm start
 cd client
 npm install
 npm start
+```
 
 Frontend will run on: [http://localhost:3000](http://localhost:3000)
 
@@ -75,15 +80,14 @@ Frontend will run on: [http://localhost:3000](http://localhost:3000)
 ## Image Upload
 
 - Users can upload images with posts and profile  
-- Images are stored as **Base64** strings in MongoDB  
+- Images are uploaded to **Cloudinary** and URLs are stored in MongoDB documents. 
 - **5MB** size limit is enforced in the frontend  
 - **Preview** of the image is shown before upload
 
-##  Limitations / Known Issues
+##  Limitations
 
 -  No email verification or password reset  
--  JWT stored in `localStorage` (less secure than HttpOnly cookies)  
--  Images stored in DB (could use Cloudinary or AWS S3 for better practice)  
+-  JWT stored in `localStorage` (less secure than HttpOnly cookies)   
 -  No edit/delete post functionality yet  
 -  No search, filters, or pagination yet
 
@@ -110,5 +114,5 @@ Frontend will run on: [http://localhost:3000](http://localhost:3000)
 │   ├── controllers/       # API logic handlers
 │   ├── models/            # Mongoose schemas
 │   ├── middleware/        # JWT verification middleware
-│   └── utils/             # JWT helper functions
+│   └── utils/             # Utility functions
 └── README.md
