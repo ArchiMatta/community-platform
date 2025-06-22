@@ -17,6 +17,7 @@ const Login = () => {
     try {
       const res = await api.post('/auth/login', form);
       localStorage.setItem('token', res.data.token);
+      localStorage.setItem('userId', res.data.userId);
       alert('Login successful');
       navigate('/feed'); // We'll build this page next
     } catch (err) {
