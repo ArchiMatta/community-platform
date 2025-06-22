@@ -1,0 +1,120 @@
+body {
+  margin: 0;
+  font-family: sans-serif;
+}
+
+.container {
+  max-width: 400px;
+  margin: 50px auto;
+  padding: 20px;
+  border-radius: 8px;
+  background-color: #f2f2f2;
+}
+
+input, button {
+  display: block;
+  width: 100%;
+  margin-bottom: 15px;
+  padding: 10px;
+  font-size: 16px;
+}
+
+button {
+  background-color: #333;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.post-card {
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 16px;
+}
+
+.post-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.post-image {
+  max-width: 100%;
+  margin-top: 10px;
+  border-radius: 8px;
+}
+
+textarea {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  resize: vertical;
+  margin-bottom: 15px;
+}
+
+.navbar {
+  background-color: #222;
+  padding: 10px 20px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.nav-links a,
+.nav-links button {
+  color: white;
+  text-decoration: none;
+  background: none;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.nav-links button:hover,
+.nav-links a:hover {
+  text-decoration: underline;
+}
+
+.post-image {
+  max-width: 100%;
+  margin-top: 10px;
+  border-radius: 8px;
+}
+
+@media (max-width: 600px) {
+  .container {
+    margin: 20px;
+    padding: 15px;
+  }
+
+  input, button {
+    font-size: 14px;
+  }
+
+  .post-card {
+    padding: 12px;
+  }
+
+  .avatar {
+    width: 30px;
+    height: 30px;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+}

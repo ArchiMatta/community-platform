@@ -1,5 +1,6 @@
 const User = require('../models/User');
 const bcrypt = require('bcryptjs');
+const { generateToken } = require('../utils/jwt');
 
 exports.signup = async (req, res) => {
   const { name, email, password } = req.body;
@@ -22,7 +23,8 @@ exports.login = async (req, res) => {
     const isMatch = await bcrypt.compare(password, user.password);
     if (!isMatch) return res.status(400).json({ error: 'Invalid email or password' });
 
-    res.json({ message: 'Login successful', userId: user._id });
+    const token = generateToken(user._id);
+    res.json({ token });
   } catch (err) {
     res.status(500).json({ error: 'Login failed' });
   }
