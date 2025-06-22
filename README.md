@@ -23,12 +23,14 @@ A simple, responsive social media-like app where users can sign up, log in, crea
 ```bash
 git clone https://github.com/your-username/futurebook.git
 cd futurebook
+```
 
 ### 2. Backend Setup
 
 ```bash
 cd server
 npm install
+```
 
 ### Create a `.env` file
 
@@ -38,11 +40,13 @@ Inside the `server` folder, create a `.env` file with the following content:
 MONGO_URI=your_mongo_atlas_connection_uri
 JWT_SECRET=your_jwt_secret
 PORT=5000
+```
 
 ### Start the Backend Server
 
 ```bash
 npm start
+```
 
 ### 3. Frontend Setup
 
@@ -50,6 +54,7 @@ npm start
 cd client
 npm install
 npm start
+```
 
 Frontend will run on: [http://localhost:3000](http://localhost:3000)
 
