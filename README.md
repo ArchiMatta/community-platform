@@ -21,8 +21,8 @@ A simple, responsive social media-like app where users can sign up, log in, crea
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/futurebook.git
-cd futurebook
+git clone https://github.com/ArchiMatta/community-platform.git
+cd community-platform
 ```
 
 ### 2. Backend Setup

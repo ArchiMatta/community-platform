@@ -15,6 +15,7 @@ const Navbar = () => {
 
   return (
     <nav className="navbar">
+      <span className="logo">Community-Platform</span>
       <div className="nav-links">
         <Link to="/feed">Feed</Link>
         <Link to="/create">Create</Link>

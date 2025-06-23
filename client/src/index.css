@@ -1,69 +1,91 @@
 body {
   margin: 0;
-  font-family: sans-serif;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f9f9f9;
+  color: #333;
 }
 
 .container {
-  max-width: 400px;
-  margin: 50px auto;
-  padding: 20px;
-  border-radius: 8px;
-  background-color: #f2f2f2;
+  max-width: 500px;
+  margin: 40px auto;
+  background: white;
+  padding: 24px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
 }
 
-input, button {
-  display: block;
+/* Form Elements */
+input,
+textarea,
+button {
   width: 100%;
-  margin-bottom: 15px;
-  padding: 10px;
+  padding: 12px;
   font-size: 16px;
+  margin-bottom: 16px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-sizing: border-box;
 }
 
+/* Inputs */
+input:focus,
+textarea:focus {
+  border-color: #666;
+  outline: none;
+}
+
+/* Buttons */
 button {
   background-color: #333;
   color: white;
   border: none;
   cursor: pointer;
+  transition: background 0.3s;
 }
 
+button:hover {
+  background-color: #555;
+}
+
+/* Post Card */
 .post-card {
   background: #fff;
-  border: 1px solid #ccc;
-  border-radius: 8px;
+  border: 1px solid #ddd;
+  border-radius: 12px;
   padding: 16px;
-  margin-bottom: 16px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
 }
 
+/* Post Header */
 .post-header {
   display: flex;
   align-items: center;
   margin-bottom: 10px;
 }
 
+/* Avatar */
 .avatar {
   width: 40px;
   height: 40px;
   border-radius: 50%;
+  object-fit: cover;
   margin-right: 10px;
 }
 
+/* Post Image */
 .post-image {
   max-width: 100%;
+  border-radius: 10px;
   margin-top: 10px;
-  border-radius: 8px;
 }
 
-textarea {
-  width: 100%;
-  padding: 10px;
-  font-size: 16px;
-  resize: vertical;
-  margin-bottom: 15px;
-}
-
+/* Navbar */
 .navbar {
   background-color: #222;
-  padding: 10px 20px;
+  padding: 12px 20px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
 .nav-links {
@@ -82,29 +104,58 @@ textarea {
   cursor: pointer;
 }
 
-.nav-links button:hover,
-.nav-links a:hover {
+.nav-links a:hover,
+.nav-links button:hover {
   text-decoration: underline;
 }
 
-.post-image {
-  max-width: 100%;
-  margin-top: 10px;
-  border-radius: 8px;
+.nav-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
+.logo {
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+}
+
+
+/* Spinner */
+.spinner-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80px;
+}
+
+.spinner {
+  border: 4px solid #eee;
+  border-top: 4px solid #333;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Responsive Design */
 @media (max-width: 600px) {
   .container {
     margin: 20px;
-    padding: 15px;
+    padding: 16px;
   }
 
-  input, button {
+  input,
+  button,
+  textarea {
     font-size: 14px;
-  }
-
-  .post-card {
-    padding: 12px;
   }
 
   .avatar {
@@ -112,9 +163,15 @@ textarea {
     height: 30px;
   }
 
-  .nav-links {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 10px;
-  }
+.nav-wrapper {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.nav-links {
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+}
 }

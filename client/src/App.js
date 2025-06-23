@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route , Navigate  } from 'react-router-dom';
 import './App.css';
 
 // Import your page components
@@ -18,6 +18,7 @@ function App() {
       <Navbar />
       <div className="App">
         <Routes>
+          <Route path="/" element={<Navigate to="/feed" replace />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/login" element={<Login />} />
           <Route path="/feed" element={<ProtectedRoute><Feed /></ProtectedRoute>} />
