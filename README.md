@@ -15,7 +15,13 @@ A simple, responsive social media-like app where users can sign up, log in, crea
 | API Testing  | Postman                          |
 
 ---
+## ☁️ Deployment
 
+The frontend of this application is deployed on **Vercel**, and the backend API is deployed on **Render**.
+
+**Live Demo:** [https://community-platform-eight.vercel.app/](https://community-platform-eight.vercel.app/)
+
+---
 ## 📦 Project Setup
 
 ### 1. Clone the Repository
