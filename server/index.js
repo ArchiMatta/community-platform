@@ -1,7 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
-require('dotenv').config();
+require('dotenv').config({ path: __dirname + '/.env' });
 
 const authRoutes = require('./routes/auth');
 const postRoutes = require('./routes/post');
@@ -24,10 +24,21 @@ app.use((req, res, next) => {
   res.status(404).json({ message: 'API Endpoint Not Found' });
 });
 
+const uri = process.env.MONGO_URI;
+if (!uri) {
+  console.error("MONGO_URI is not defined! Please check your .env file.");
+  process.exit(1);
+}
+
+console.log("Mongo URI:", process.env.MONGO_URI);
+
 mongoose
-  .connect(process.env.MONGO_URI)
+  .connect(uri)
   .then(() => {
     console.log('MongoDB connected');
-    app.listen(5000, () => console.log('Server running on http://localhost:5000'));
+
+    // Use PORT from environment or fallback to 5000 for local dev
+    const PORT = process.env.PORT || 5000;
+    app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
   })
-  .catch(err => console.error(err));
+  .catch(err => console.error("MongoDB connection error:", err));

@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import api from '../api';
 import Spinner from '../components/Spinner';
 
 const Signup = () => {
   const [form, setForm] = useState({ name: '', email: '', password: '' });
-
+  const navigate = useNavigate();
   const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
   const [loading, setLoading] = useState(false);
 
@@ -14,6 +15,7 @@ const Signup = () => {
     try {
       await api.post('/auth/signup', form);
       alert('Signup successful. You can now log in.');
+      setTimeout(() => navigate('/login', { replace: true }), 100);
     } catch (err) {
       alert(err.response.data.error || 'Signup failed');
     } finally {

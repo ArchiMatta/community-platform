@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -15,12 +15,18 @@ const Navbar = () => {
 
   return (
     <nav className="navbar">
-      <span className="logo">Community-Platform</span>
-      <div className="nav-links">
-        <Link to="/feed">Feed</Link>
-        <Link to="/create">Create</Link>
-        <Link to="/profile">Profile</Link>
-        <button onClick={handleLogout}>Logout</button>
+      <div className="nav-wrapper">
+        <span className="logo">Community-Platform</span>
+        
+        <div className="nav-links-left">
+          <NavLink to="/feed" className={({ isActive }) => (isActive ? "active" : "")}>Feed</NavLink>
+          <NavLink to="/create" className={({ isActive }) => (isActive ? "active" : "")}>Create</NavLink>
+          <NavLink to="/profile" className={({ isActive }) => (isActive ? "active" : "")}>Profile</NavLink>
+        </div>
+
+        <div className="nav-links-right">
+          <button onClick={handleLogout}>Logout</button>
+        </div>
       </div>
     </nav>
   );

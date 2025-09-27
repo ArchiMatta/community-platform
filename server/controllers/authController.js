@@ -18,10 +18,15 @@ exports.login = async (req, res) => {
   const { email, password } = req.body;
   try {
     const user = await User.findOne({ email });
-    if (!user) return res.status(400).json({ error: 'Invalid email or password' });
+
+    if (!user) {
+      return res.status(404).json({ error: 'Email not registered' }); // <-- Changed to 404
+    }
 
     const isMatch = await bcrypt.compare(password, user.password);
-    if (!isMatch) return res.status(400).json({ error: 'Invalid email or password' });
+    if (!isMatch) {
+      return res.status(400).json({ error: 'Invalid password' }); // <-- 400 for wrong password
+    }
 
     const token = generateToken(user._id);
     res.json({ token, userId: user._id });

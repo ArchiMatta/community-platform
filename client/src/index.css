@@ -88,26 +88,55 @@ button:hover {
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
-.nav-links {
+.nav-wrapper {
   display: flex;
-  gap: 16px;
+  justify-content: space-between; /* Space between left and right sections */
   align-items: center;
+  width: 100%;
 }
 
-.nav-links a,
-.nav-links button {
+.nav-links-left,
+.nav-links-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.nav-links-left a,
+.nav-links-left a:visited,
+.nav-links-left a:active {
   color: white;
   text-decoration: none;
-  background: none;
-  border: none;
   font-size: 16px;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.nav-links-left a:hover {
+  color: #ffcc00;
+}
+
+.nav-links-left a.active {
+  color: #ffcc00;
+  font-weight: bold;
+  border-bottom: 2px solid #ffcc00;
+  padding-bottom: 2px;
+}
+
+/* Right side logout button */
+.nav-links-right button {
+  color: white; 
+  text-decoration: none; 
+  background: none; 
+  border: none; 
+  font-size: 16px; 
   cursor: pointer;
 }
 
-.nav-links a:hover,
-.nav-links button:hover {
-  text-decoration: underline;
+.nav-links-right button:hover {
+  background: #cc0000;
 }
+
 
 .nav-wrapper {
   display: flex;

@@ -21,8 +21,19 @@ const Login = () => {
       alert('Login successful');
       navigate('/feed'); // We'll build this page next
     } catch (err) {
-      alert(err.response?.data?.error || 'Login failed');
-    } finally {
+  const status = err.response?.status;
+  const message = err.response?.data?.error || 'Login failed';
+
+  if (status === 404) {
+    // User not found → redirect to signup
+    alert('Email not registered. Redirecting to Signup...');
+    setTimeout(() => navigate('/signup', { replace: true }), 100);
+  } else if (status === 400) {
+    alert('Invalid password. Please try again.');
+  } else {
+    alert(message);
+  }
+} finally {
       setLoading(false); 
     }
   };
